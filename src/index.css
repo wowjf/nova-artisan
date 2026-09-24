@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Smile Moon";
+  src: url("@/assets/fonts/SmileMoon.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Baleday";
+  src: url("@/assets/fonts/Baleday.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #111113;
+  --color-card: #fafafa;
+  --color-muted: #6b6b72;
+  --color-border: #e6e6e9;
+  --color-primary: #b08d57;
+  --color-primary-foreground: #ffffff;
+  --color-on-media: #ffffff;
+
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-hero: "Smile Moon", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-logo: "Baleday", "Smile Moon", cursive;
+
+  --text-hero: clamp(2.75rem, 8vw, 7.5rem);
+  --text-hero--line-height: 1.05;
+
+  --breakpoint-3xl: 120rem;
+
+  --animate-marquee-left: marquee-left 55s linear infinite;
+  --animate-marquee-right: marquee-right 55s linear infinite;
+
+  @keyframes marquee-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-right {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: clamp(16px, 0.55vw + 15.1px, 20px);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}

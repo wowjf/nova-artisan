@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /cerez-ayarlari
+
+Sitemap: https://novaartisan.com/sitemap.xml

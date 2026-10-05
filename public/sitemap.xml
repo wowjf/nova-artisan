@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://novaartisan.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://novaartisan.com/hakkimizda</loc><priority>0.8</priority></url>
-  <url><loc>https://novaartisan.com/urunler</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://novaartisan.com/sss</loc><priority>0.7</priority></url>
-  <url><loc>https://novaartisan.com/iletisim</loc><priority>0.8</priority></url>
-  <url><loc>https://novaartisan.com/firin-ustasi-gunlugu</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://novaartisan.com/tarif-bulteni</loc><priority>0.7</priority></url>
-  <url><loc>https://novaartisan.com/etkinlik-galerisi</loc><priority>0.6</priority></url>
-  <url><loc>https://novaartisan.com/ozel-firsatlar</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://novaartisan.com/gizlilik-politikasi</loc><priority>0.3</priority></url>
-  <url><loc>https://novaartisan.com/gida-guvenligi-standartlari</loc><priority>0.5</priority></url>
-  <url><loc>https://novaartisan.com/hizmet-sartlari</loc><priority>0.3</priority></url>
-  <url><loc>https://novaartisan.com/alerjen-bilgileri</loc><priority>0.5</priority></url>
+  <url><loc>https://novaartisanbakery.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://novaartisanbakery.com/katalog</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://novaartisanbakery.com/rezervasyon</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://novaartisanbakery.com/hakkimizda</loc><priority>0.8</priority></url>
+  <url><loc>https://novaartisanbakery.com/iletisim</loc><priority>0.8</priority></url>
+  <url><loc>https://novaartisanbakery.com/sss</loc><priority>0.7</priority></url>
+  <url><loc>https://novaartisanbakery.com/firin-ustasi-gunlugu</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://novaartisanbakery.com/tarif-bulteni</loc><priority>0.7</priority></url>
+  <url><loc>https://novaartisanbakery.com/etkinlik-galerisi</loc><priority>0.6</priority></url>
+  <url><loc>https://novaartisanbakery.com/ozel-firsatlar</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaartisanbakery.com/gizlilik-politikasi</loc><priority>0.3</priority></url>
+  <url><loc>https://novaartisanbakery.com/gida-guvenligi-standartlari</loc><priority>0.5</priority></url>
+  <url><loc>https://novaartisanbakery.com/hizmet-sartlari</loc><priority>0.3</priority></url>
+  <url><loc>https://novaartisanbakery.com/alerjen-bilgileri</loc><priority>0.5</priority></url>
 </urlset>

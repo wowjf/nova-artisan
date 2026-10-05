@@ -1,11 +1,26 @@
+// File: src/pages/ContactPage.tsx
+
 import { useState, type FormEvent } from 'react';
-import { Link } from 'react-router-dom';
 import { PageTemplate } from '@/components/PageTemplate';
 import { Seo } from '@/components/Seo';
 
 const contactJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
+  mainEntity: {
+    '@type': 'Bakery',
+    name: 'Nova Artisan',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Fevzipaşa, Atatürk Cd.',
+      addressLocality: 'Erbaa',
+      addressRegion: 'Tokat',
+      postalCode: '60500',
+      addressCountry: 'TR',
+    },
+    telephone: '+905462778746',
+    email: 'destek@novaartisanbakery.com',
+  },
 };
 
 const weekHours: [string, string][] = [
@@ -15,251 +30,261 @@ const weekHours: [string, string][] = [
   ['Perşembe', '07:00–20:00'],
   ['Cuma', '07:00–20:00'],
   ['Cumartesi', '07:00–20:00'],
+  ['Pazar', '08:00–19:00'],
 ];
 
 export function ContactPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [sent, setSent] = useState(false);
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:destek@novaartisan.com?subject=${encodeURIComponent(
-      `İletişim Formu: ${subject}`
-    )}&body=${encodeURIComponent(`${name} (${email}): ${message}`)}`;
     setSent(true);
   };
 
   return (
     <>
       <Seo
-        title="İletişim — Adres, Telefon ve Çalışma Saatleri | Nova Artisan"
-        description="Nova Artisan iletişim: Çankaya Ankara'daki fırınımızın adresi, telefonu, e-postası ve çalışma saatleri; formu doldurun, sorularınızı aynı gün yanıtlayalım."
+        title="İletişim & Konum — Erbaa Tokat Fırın & Pastane | Nova Artisan"
+        description="Nova Artisan Tokat Erbaa iletişim bilgileri: Fevzipaşa Atatürk Caddesi fırın adresi, telefon 0546 277 87 46, e-posta, Instagram ve Google Haritalar konumu."
         jsonLd={contactJsonLd}
       />
       <PageTemplate
-        eyebrow="Kurumsal"
-        title="İletişim"
-        intro="Sorularınız, siparişiniz ya da özel talepleriniz mi var? Fırınımıza ulaşmanın tüm yolları — adres, telefon, e-posta ve çalışma saatleri — bu sayfada."
+        eyebrow="Erbaa / Tokat Butik Pastanesi"
+        title="İletişim & Ulaşım"
+        intro="Özel pasta siparişleriniz, toplu börek talepleriniz veya fırınımız hakkındaki tüm sorularınız için bize telefon, e-posta ya da WhatsApp üzerinden doğrudan ulaşabilirsiniz."
       >
-        <section>
-          <h2 className="mb-6 text-2xl font-black text-foreground">
-            İletişim Kanalları
-          </h2>
-          <p className="text-muted mb-6 max-w-2xl leading-relaxed">
-            En hızlı <strong className="text-foreground">iletişim</strong>{' '}
-            kanalımız e-posta; sıcak ürün saatinde sipariş için telefon hattımız
-            açık. Çankaya / Ankara'daki fırınımıza çay içmeye de bekleriz.
-          </p>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1 motion-reduce:transition-none">
-              <h3 className="text-lg font-bold text-foreground">Adres</h3>
-              <p className="text-muted mt-3 text-sm leading-relaxed">
-                Gurmeler Plaza No:1, Gastronomi Mah. Çankaya / Ankara
+        <section aria-label="İletişim Bilgileri">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+              <span className="text-lg">📍</span>
+              <h3 className="mt-1.5 text-sm font-bold text-foreground">Fırın Adresi</h3>
+              <p className="text-muted mt-1.5 text-xs leading-relaxed">
+                Fevzipaşa, Atatürk Cd., 60500 Erbaa / Tokat
               </p>
-              <p className="text-muted mt-2 text-sm leading-relaxed">
-                Tezgâhımız her gün sabah 07:00'de sıcak ürünle açılıyor.
+              <p className="mt-2 text-[11px] font-semibold text-primary">
+                Atatürk Caddesi üzerinde
               </p>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1 motion-reduce:transition-none">
-              <h3 className="text-lg font-bold text-foreground">Telefon</h3>
-              <p className="mt-3 text-sm leading-relaxed">
+
+            <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+              <span className="text-lg">📞</span>
+              <h3 className="mt-1.5 text-sm font-bold text-foreground">Telefon & Sipariş</h3>
+              <p className="mt-1.5 text-xs leading-relaxed">
                 <a
-                  href="tel:+903121234567"
-                  className="text-primary font-medium hover:underline"
+                  href="tel:+905462778746"
+                  className="text-primary font-bold text-xs sm:text-sm hover:underline"
                 >
-                  +90 312 123 45 67
+                  +90 546 277 87 46
                 </a>
               </p>
-              <p className="text-muted mt-2 text-sm leading-relaxed">
-                Sipariş ve rezervasyon hattı; hafta içi ve Cumartesi
-                07:00–20:00 arasında yanıt veriyoruz.
+              <p className="text-muted mt-1 text-[11px] leading-relaxed">
+                Haftanın her günü sıcak fırın saatlerinde aktiftir.
               </p>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1 motion-reduce:transition-none">
-              <h3 className="text-lg font-bold text-foreground">E-posta</h3>
-              <p className="mt-3 text-sm leading-relaxed">
+
+            <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+              <span className="text-lg">✉️</span>
+              <h3 className="mt-1.5 text-sm font-bold text-foreground">E-posta</h3>
+              <p className="mt-1.5 text-xs leading-relaxed">
                 <a
-                  href="mailto:destek@novaartisan.com"
-                  className="text-primary font-medium hover:underline"
+                  href="mailto:destek@novaartisanbakery.com"
+                  className="text-primary font-medium hover:underline break-all text-xs"
                 >
-                  destek@novaartisan.com
+                  destek@novaartisanbakery.com
                 </a>
               </p>
-              <p className="text-muted mt-2 text-sm leading-relaxed">
-                Sorularınıza genelde aynı gün içinde dönüyoruz.
+              <p className="text-muted mt-1 text-[11px] leading-relaxed">
+                Kurumsal ve catering talepleri için.
               </p>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1 motion-reduce:transition-none">
-              <h3 className="text-lg font-bold text-foreground">
-                Çalışma Saatleri
-              </h3>
-              <p className="text-muted mt-3 text-sm leading-relaxed">
-                Pazartesi–Cumartesi{' '}
-                <strong className="text-foreground">07:00–20:00</strong>, Pazar
-                günleri kapalıyız.
+
+            <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
+              <span className="text-lg">📷</span>
+              <h3 className="mt-1.5 text-sm font-bold text-foreground">Instagram</h3>
+              <p className="mt-1.5 text-xs leading-relaxed">
+                <a
+                  href="https://www.instagram.com/nova.artisann"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-primary font-medium hover:underline text-xs"
+                >
+                  @nova.artisann
+                </a>
               </p>
-              <p className="text-muted mt-2 text-sm leading-relaxed">
-                Ayrıntılı tablo aşağıdaki bölümde.
+              <p className="text-muted mt-1 text-[11px] leading-relaxed">
+                Günlük taze vitrin paylaşımları.
               </p>
             </div>
           </div>
         </section>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-2">
-          <section>
-            <h2 className="mb-6 text-2xl font-black text-foreground">
-              Çalışma Saatleri
-            </h2>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[24rem] border-collapse text-sm">
-                <thead>
-                  <tr className="border-b border-border text-left">
-                    <th scope="col" className="py-3 pr-4 font-semibold">
-                      Gün
-                    </th>
-                    <th scope="col" className="py-3 font-semibold">
-                      Saatler
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {weekHours.map(([day, hours]) => (
-                    <tr key={day} className="border-b border-border/60">
-                      <td className="py-3 pr-4 font-medium">{day}</td>
-                      <td className="text-muted py-3">{hours}</td>
-                    </tr>
-                  ))}
-                  <tr className="border-b border-border/60">
-                    <td className="py-3 pr-4 font-medium">Pazar</td>
-                    <td className="text-primary py-3 font-medium">Kapalı</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="text-muted mt-4 text-sm leading-relaxed">
-              Resmî bayramlarda saatler değişebilir; güncel durum için
-              telefonla teyit etmenizi rica ederiz.
+        {/* Çalışma Saatleri ve Harita */}
+        <section aria-label="Harita ve Saatler" className="mt-8 sm:mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="rounded-xl border border-border bg-card p-4 sm:p-5 lg:col-span-1">
+            <h3 className="text-base font-bold text-foreground">
+              Çalışma Saatlerimiz
+            </h3>
+            <p className="mt-0.5 text-xs text-muted">
+              Sabah ilk böreklerimiz 07:00'de vitrinde.
             </p>
-          </section>
 
-          <section>
-            <h2 className="mb-6 text-2xl font-black text-foreground">
-              Bize Yazın
-            </h2>
-            <form
-              onSubmit={submit}
-              className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-6"
-            >
-              <label
-                htmlFor="contact-name"
-                className="font-semibold text-foreground"
-              >
-                Adınız
-              </label>
-              <input
-                id="contact-name"
-                type="text"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Adınız Soyadınız"
-                className="focus:border-primary h-12 rounded-lg border border-border bg-background px-4 text-foreground focus:outline-none"
-              />
-              <label
-                htmlFor="contact-email"
-                className="font-semibold text-foreground"
-              >
-                E-posta adresiniz
-              </label>
-              <input
-                id="contact-email"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="ornek@eposta.com"
-                className="focus:border-primary h-12 rounded-lg border border-border bg-background px-4 text-foreground focus:outline-none"
-              />
-              <label
-                htmlFor="contact-subject"
-                className="font-semibold text-foreground"
-              >
-                Konu
-              </label>
-              <input
-                id="contact-subject"
-                type="text"
-                required
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                placeholder="Örneğin: Doğum günü pastası siparişi"
-                className="focus:border-primary h-12 rounded-lg border border-border bg-background px-4 text-foreground focus:outline-none"
-              />
-              <label
-                htmlFor="contact-message"
-                className="font-semibold text-foreground"
-              >
-                Mesajınız
-              </label>
-              <textarea
-                id="contact-message"
-                required
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Bize nasıl yardımcı olabiliriz?"
-                className="focus:border-primary h-32 rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="bg-primary text-primary-foreground inline-flex h-12 items-center justify-center rounded-full px-8 font-semibold transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none"
-              >
-                Mesajı Gönder
-              </button>
-              <p aria-live="polite" className="text-muted text-xs">
-                {sent
-                  ? 'E-posta uygulamanız açıldı — mesajı göndererek iletişiminizi tamamlayın.'
-                  : 'Mesajınız e-posta uygulamanız üzerinden bize ulaşır; genelde aynı gün yanıt veriyoruz.'}
-              </p>
-            </form>
-          </section>
-        </div>
-
-        <p className="text-muted mt-14 text-sm leading-relaxed">
-          Konum haritamız ve ulaşım yönlendirmeleri{' '}
-          <Link to="/" className="text-primary font-medium hover:underline">
-            ana sayfada
-          </Link>{' '}
-          yer alıyor; sipariş teslim süreleri için menümüzü de inceleyebilirsiniz.
-        </p>
-
-        <div className="mt-14">
-          <h2 className="mb-4 text-2xl font-black text-foreground">
-            İlgili Sayfalar
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              to="/sss"
-              className="text-primary rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-primary"
-            >
-              Sıkça Sorulan Sorular
-            </Link>
-            <Link
-              to="/tarif-bulteni"
-              className="text-primary rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-primary"
-            >
-              Tarif Bülteni
-            </Link>
-            <Link
-              to="/urunler"
-              className="text-primary rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-primary"
-            >
-              Ürünlerimiz
-            </Link>
+            <ul className="mt-4 divide-y divide-border/60 text-xs">
+              {weekHours.map(([gun, saat]) => (
+                <li key={gun} className="flex justify-between py-2">
+                  <span className="font-medium text-foreground">{gun}</span>
+                  <span className="font-mono text-muted">{saat}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+
+          <div className="overflow-hidden rounded-xl border border-border bg-card lg:col-span-2">
+            <div className="h-64 sm:h-72 w-full">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d189.13818290325258!2d36.56771181795871!3d40.66932126066707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1789939511130!5m2!1str!2str"
+                title="Nova Artisan Erbaa Haritası"
+                className="size-full"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
+            <div className="p-3 text-xs text-muted flex items-center justify-between">
+              <span>Fevzipaşa, Atatürk Cd., 60500 Erbaa / Tokat</span>
+              <a
+                href="https://maps.google.com/?q=40.669321,36.567711"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-primary hover:underline"
+              >
+                Haritada Aç ↗
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Mesaj Formu */}
+        <section aria-label="İletişim Formu" className="mt-8 sm:mt-10">
+          <div className="rounded-xl border border-border bg-card p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-bold text-foreground">
+              Bize Mesaj Gönderin
+            </h3>
+            <p className="mt-0.5 text-xs text-muted">
+              Formu doldurun, talebinizi aynı gün içinde yanıtlayalım.
+            </p>
+
+            {sent ? (
+              <div className="mt-4 rounded-lg border border-primary/30 bg-primary/10 p-5 text-center">
+                <p className="text-xs sm:text-sm font-semibold text-primary">
+                  Mesajınız başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSent(false)}
+                  className="mt-2 text-xs text-foreground underline cursor-pointer"
+                >
+                  Yeni mesaj gönder
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={submit} className="mt-4 grid gap-3.5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="mb-1 block text-xs font-semibold text-foreground">
+                    Adınız Soyadınız *
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full rounded-lg border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="mb-1 block text-xs font-semibold text-foreground">
+                    Telefon Numaranız
+                  </label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="0546 277 87 46"
+                    className="w-full rounded-lg border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="mb-1 block text-xs font-semibold text-foreground">
+                    E-posta Adresiniz *
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full rounded-lg border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="subject" className="mb-1 block text-xs font-semibold text-foreground">
+                    Konu *
+                  </label>
+                  <input
+                    id="subject"
+                    type="text"
+                    required
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    placeholder="Özel Pasta, Toplu Börek Siparişi"
+                    className="w-full rounded-lg border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  />
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label htmlFor="message" className="mb-1 block text-xs font-semibold text-foreground">
+                    Mesajınız *
+                  </label>
+                  <textarea
+                    id="message"
+                    required
+                    rows={3}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="w-full rounded-lg border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  />
+                </div>
+
+                <div className="sm:col-span-2 flex items-center justify-between">
+                  <button
+                    type="submit"
+                    className="rounded-lg bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground hover:opacity-95 cursor-pointer"
+                  >
+                    Mesajı Gönder
+                  </button>
+                  <a
+                    href="https://wa.me/905462778746"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs font-semibold text-primary hover:underline"
+                  >
+                    WhatsApp ile yazın ↗
+                  </a>
+                </div>
+              </form>
+            )}
+          </div>
+        </section>
       </PageTemplate>
     </>
   );

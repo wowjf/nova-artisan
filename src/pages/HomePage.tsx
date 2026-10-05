@@ -1,3 +1,5 @@
+// File: src/pages/HomePage.tsx
+
 import { Hero } from '@/components/Hero';
 import { Sliders } from '@/components/Sliders';
 import { MapSection } from '@/components/MapSection';
@@ -9,27 +11,29 @@ const localBusinessJsonLd = {
   '@type': 'Bakery',
   name: 'Nova Artisan',
   description:
-    'Ankara Çankayada el yapımı fırın ürünleri: kruvasan, baklava, makaron. Taş fırın geleneği ve taze günlük üretim.',
+    'Tokat Erbaa’da butik ve profesyonel pastane: özel tasarım pastalar, el yapımı kat kat börekler, artisan kruvasanlar ve Antep fıstıklı baklava çeşitleri.',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Gurmeler Plaza No:1, Gastronomi Mahallesi',
-    addressLocality: 'Çankaya',
-    addressRegion: 'Ankara',
+    streetAddress: 'Fevzipaşa, Atatürk Cd.',
+    addressLocality: 'Erbaa',
+    addressRegion: 'Tokat',
+    postalCode: '60500',
     addressCountry: 'TR',
   },
-  telephone: '+903121234567',
-  email: 'destek@novaartisan.com',
-  openingHours: 'Mo-Sa 07:00-20:00',
+  telephone: '+905462778746',
+  email: 'destek@novaartisanbakery.com',
+  sameAs: ['https://www.instagram.com/nova.artisann'],
+  openingHours: 'Mo-Sa 07:00-20:00, Su 08:00-19:00',
   priceRange: '₺₺',
-  servesCuisine: ['Fırın Ürünleri', 'Pastane', 'Kahve'],
+  servesCuisine: ['Pastane', 'Börek', 'Kruvasan', 'Baklava', 'Kahve'],
 };
 
 export function HomePage() {
   return (
     <>
       <Seo
-        title="Nova Artisan — El Yapımı Fırın Ürünleri | Ankara Çankaya"
-        description="Ankara Çankaya'da taş fırından çıkan el yapımı kruvasan, baklava ve makaron. Sabah 07:00'den akşama taze üretim. Açılışa özel %20 indirim."
+        title="Nova Artisan — Butik & Profesyonel Pastane | Tokat Erbaa"
+        description="Tokat Erbaa'da açılan Nova Artisan: zengin pasta ve börek çeşitleri, el yapımı kruvasanlar, çıtır baklavalar ve nitelikli kahveler. Her sabah taze taş fırın üretimi."
         jsonLd={localBusinessJsonLd}
       />
       <Hero />

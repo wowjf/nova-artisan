@@ -1,4 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// File: src/App.tsx
+
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { Header } from '@/components/Header';
 import { NotificationBar } from '@/components/NotificationBar';
 import { Footer } from '@/components/Footer';
@@ -12,6 +14,7 @@ import { AboutPage } from '@/pages/AboutPage';
 import { FaqPage } from '@/pages/FaqPage';
 import { ContactPage } from '@/pages/ContactPage';
 import { ProductsPage } from '@/pages/ProductsPage';
+import { ReservationPage } from '@/pages/ReservationPage';
 import { PrivacyPage } from '@/pages/PrivacyPage';
 import { TermsPage } from '@/pages/TermsPage';
 import { FoodSafetyPage } from '@/pages/FoodSafetyPage';
@@ -29,14 +32,16 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/katalog" element={<ProductsPage />} />
+            <Route path="/urunler" element={<Navigate to="/katalog" replace />} />
+            <Route path="/rezervasyon" element={<ReservationPage />} />
+            <Route path="/hakkimizda" element={<AboutPage />} />
+            <Route path="/iletisim" element={<ContactPage />} />
             <Route path="/firin-ustasi-gunlugu" element={<BlogPage />} />
             <Route path="/tarif-bulteni" element={<NewsletterPage />} />
             <Route path="/etkinlik-galerisi" element={<GalleryPage />} />
             <Route path="/ozel-firsatlar" element={<OffersPage />} />
-            <Route path="/hakkimizda" element={<AboutPage />} />
             <Route path="/sss" element={<FaqPage />} />
-            <Route path="/iletisim" element={<ContactPage />} />
-            <Route path="/urunler" element={<ProductsPage />} />
             <Route path="/gizlilik-politikasi" element={<PrivacyPage />} />
             <Route path="/gida-guvenligi-standartlari" element={<FoodSafetyPage />} />
             <Route path="/hizmet-sartlari" element={<TermsPage />} />

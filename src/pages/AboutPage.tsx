@@ -1,204 +1,184 @@
+// File: src/pages/AboutPage.tsx
+
 import { PageTemplate } from '@/components/PageTemplate';
 import { Seo } from '@/components/Seo';
 import { Link } from 'react-router-dom';
 
 const milestones = [
   {
-    yil: '1987',
-    olay: 'Mehmet Usta, Çankaya’da ilk fırınını açtı; gece yoğrulan mayalı hamurlar ve günlük ekmek üretimi başladı.',
-  },
-  {
-    yil: '2003',
-    olay: 'İkinci kuşak aileye katıldı; 27 katman hamurla açılan el yapımı kruvasan hattı kuruldu.',
-  },
-  {
-    yil: '2014',
-    olay: 'Taş fırın baştan yenilendi; oklavada açılan baklava ve elle sıkılan makaron atölyesi hizmete girdi.',
+    yil: 'Ekim 2026',
+    olay: 'Nova Artisan, Tokat Erbaa’da Fevzipaşa Mahallesi Atatürk Caddesi’nde kapılarını açtı; modern taş fırın ve butik pasta atölyesi faaliyete geçti.',
   },
   {
     yil: '2026',
-    olay: 'Nova Artisan markası doğdu; “usta eller, taze fırın” mottosu tüm üretimimize yön verdi.',
+    olay: 'Pasta ve börek reçetelerinde uzmanlaşarak; el açması kat kat börekler, artisan kruvasanlar ve Belçika çikolatalı butik pastalar aynı çatı altında buluştu.',
+  },
+  {
+    yil: 'Günümüz',
+    olay: 'Erbaa’da hem profesyonel fırıncılık disiplinini hem de samimi butik pastane kültürünü harmanlayarak her sabah 07:00’de taze üretim sürdürülüyor.',
   },
 ];
 
 const values = [
   {
-    baslik: 'Taze Üretim',
-    metin: 'Hamur gece yoğrulur, sabah erkenden fırına verilir ve öğlene kalmadan vitrine dizilir. Gün sonu ürününü ertesi güne taşımıyoruz; kalanları belirlediğimiz sosyal fırın programıyla çevremizle paylaşıyoruz.',
+    baslik: 'Günlük Taze Üretim',
+    metin: 'Hamurlarımız gece dinlendirilir, sabahın ilk ışıklarıyla taş fırına girer. Vitrinimizde bekleyen hiçbir ürün ertesi güne aktarılmaz; tazelik Nova Artisan’ın vazgeçilmez kuralıdır.',
   },
   {
-    baslik: 'Şeffaf Mutfak',
-    metin: 'Mutfağımız camla çevrili: kruvasanın katmanlanmasını, baklava yufkasının inceltilmesini yerinde izleyebilirsiniz. İçindekiler listesini ve alerjen tablolarını her üründe açıkça paylaşıyoruz.',
+    baslik: 'Hakiki Tereyağı & Katkısız İçerik',
+    metin: 'Kruvasanlarımızda ve böreklerimizde margarin veya endüstriyel esanslar asla kullanılmaz. Sadece %82 yağ oranına sahip gerçek tereyağı ve doğal ham maddeler tercih edilir.',
   },
   {
-    baslik: 'Yöresel Ham Madde',
-    metin: 'Unu Konya’nın değirmenlerinden, tereyağını Şiran’ın yaylarından, Antep fıstığını ve cevizi küçük üreticilerden alıyoruz. Tedarikçimizi tanıdığımız ölçüde ürünümüzün lezzetinden emin oluyoruz.',
+    baslik: 'Butik ve Profesyonel Denge',
+    metin: 'Büyük ölçekli işletmelerin hijyen ve profesyonellik standartlarını, butik bir pastanenin özeni ve el ustalığıyla birleştiriyoruz.',
   },
 ];
 
 const stats = [
-  { deger: '39', etiket: 'yıllık fırın tecrübesi' },
-  { deger: '42+', etiket: 'günlük taze ürün çeşidi' },
-  { deger: '3', etiket: 'kuşak ustalık mirası' },
-  { deger: '%98', etiket: 'müşteri memnuniyeti' },
+  { deger: 'Ekim 2026', etiket: 'Erbaa’da açılış tarihi' },
+  { deger: '30+', etiket: 'günlük taze pasta & börek' },
+  { deger: '%100', etiket: 'doğal tereyağı ve taze malzeme' },
+  { deger: '84 Kat', etiket: 'el yapımı çıtır laminasyon' },
 ];
 
 export function AboutPage() {
   return (
     <>
       <Seo
-        title="Hakkımızda — 1987'den Beri Üç Kuşak Taş Fırın Hikâyesi | Nova Artisan"
-        description="Nova Artisan hikâyesi: 1987'den beri Ankara Çankaya'da üç kuşak el yapımı fırın ürünleri, taş fırın geleneği, değerlerimiz ve kilometre taşlarımız."
+        title="Hakkımızda — Tokat Erbaa Butik ve Profesyonel Pastanesi | Nova Artisan"
+        description="Nova Artisan hikâyesi: 2026 yılının Ekim ayında Tokat Erbaa Atatürk Caddesi'nde kurulan, farklı pasta ve börek çeşitleriyle öne çıkan butik pastanemiz hakkında bilgi alın."
         jsonLd={{
           '@context': 'https://schema.org',
-          '@type': 'Organization',
+          '@type': 'Bakery',
           name: 'Nova Artisan',
-          foundingDate: '1987',
+          foundingDate: '2026-10',
           address: {
             '@type': 'PostalAddress',
-            streetAddress: 'Gurmeler Plaza No:1, Gastronomi Mahallesi',
-            addressLocality: 'Çankaya',
-            addressRegion: 'Ankara',
+            streetAddress: 'Fevzipaşa, Atatürk Cd.',
+            addressLocality: 'Erbaa',
+            addressRegion: 'Tokat',
+            postalCode: '60500',
             addressCountry: 'TR',
           },
-          telephone: '+903121234567',
-          email: 'destek@novaartisan.com',
+          telephone: '+905462778746',
+          email: 'destek@novaartisanbakery.com',
         }}
       />
+
       <PageTemplate
-        eyebrow="Kurumsal"
-        title="Hakkımızda"
-        intro="1987'den beri üç kuşaktır süren fırın hikâyemiz: Çankaya'daki taş fırınımızda geçen 39 yıllık ustalık, sabır ve tazelik."
+        eyebrow="Erbaa / Tokat Butik Pastanesi"
+        title="Hikâyemiz & Felsefemiz"
+        intro="Nova Artisan, 2026 yılının Ekim ayında Tokat Erbaa'da kuruldu. Farklı türlerdeki pasta ve el açması börek çeşitleriyle öne çıkan işletmemiz; profesyonel mutfak disiplini ile butik pastane sıcaklığını tek bir tezgâhta buluşturuyor."
       >
-        <section>
-          <h2 className="mb-6 text-2xl font-black text-foreground">
-            Hikâyemiz
-          </h2>
-          <div className="space-y-4">
-            <p className="text-muted leading-relaxed">
-              Her şey 1987’de, Mehmet Usta’nın Çankaya’da küçük bir fırın
-              açmasıyla başladı. İlk günden beri değişmeyen tek kuralımız var:
-              hamur gece yoğrulur, sabah erkenden{' '}
-              <strong className="text-foreground">taş fırın</strong>dan çıkar,
-              öğlene kalmadan vitrine dizilir. Bu disiplin zamanla babadan
-              oğula, oğuldan toruna geçen gerçek bir ustalık mirasına dönüştü.
-            </p>
-            <p className="text-muted leading-relaxed">
-              Bugün üçüncü kuşak, aynı{' '}
-              <strong className="text-foreground">Ankara</strong> mahallesinde
-              aynı özenle <strong className="text-foreground">el yapımı fırın ürünleri</strong>{' '}
-              üretiyor. Kruvasan hamuru 27 katmanda açılır, baklava yufkası
-              oklavada elle inceltilir, makaronlar tek tek sıkılır. Hızlı
-              üretim hiçbir zaman tercihimiz olmadı; iyi pişmiş, taze ve dürüst
-              ürün bizim ölçümüz.
-            </p>
-            <p className="text-muted leading-relaxed">
-              Mehmet Usta hâlâ her sabah 04:30’da fırının başında; bu 39 yıllık
-              alışkanlık fırının nabzı sayılıyor. Torunları artık dijital
-              sipariş defterini tutuyor ama lezzet standardı hep aynı ellerin
-              sabrıyla korunuyor. Nova Artisan, bu birikimin yeni adıdır:
-              usta eller, taze fırın.
-            </p>
+        <section aria-label="Giriş ve Felsefe">
+          <div className="grid gap-6 lg:grid-cols-2 lg:items-center">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-black text-foreground">
+                Erbaa'da Başlayan Artisan Tutku
+              </h2>
+              <p className="mt-3 leading-relaxed text-muted text-xs sm:text-sm">
+                Fevzipaşa Mahallesi, Atatürk Caddesi üzerindeki fırınımızda her sabah taze un kokusu ve tereyağının çıtırtısıyla güne başlıyoruz. Nova Artisan, sıradan bir fırın veya pastane olmanın ötesinde; hem dünya pastacılığının zarif tatlarını (San Sebastian, Belçika çikolatalı mus, makaron) hem de geleneksel Türk mutfağının incelikli lezzetlerini (el açması kol böreği, su böreği, Antep fıstıklı baklava) titizlikle sunar.
+              </p>
+              <p className="mt-2.5 leading-relaxed text-muted text-xs sm:text-sm">
+                İşletmemizin alametifarikası, pasta ve börek çeşitliliğindeki zenginliktir. Her bir ürün, reçetesi günlerce test edilmiş özel tariflerle hazırlanır.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2.5">
+                <Link
+                  to="/katalog"
+                  className="rounded-lg bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground hover:opacity-95"
+                >
+                  Lezzet Kataloğunu İncele
+                </Link>
+                <Link
+                  to="/rezervasyon"
+                  className="rounded-lg border border-border bg-card px-5 py-2.5 text-xs font-semibold text-foreground hover:bg-neutral-100"
+                >
+                  Masa & Sipariş Ayırt
+                </Link>
+              </div>
+            </div>
+
+            <div className="overflow-hidden rounded-xl border border-border bg-card p-4">
+              <div className="aspect-4/3 w-full overflow-hidden rounded-lg bg-neutral-100">
+                <img
+                  src="/images/danish-panistry.png"
+                  alt="Nova Artisan fırın atölyesi lezzetleri"
+                  width={600}
+                  height={450}
+                  className="size-full object-cover"
+                />
+              </div>
+              <p className="mt-3 text-[11px] text-muted text-center italic">
+                Tokat / Erbaa Atölyemizde günlük fırınlanan butik lezzetler.
+              </p>
+            </div>
           </div>
         </section>
 
-        <section className="mt-10">
-          <h2 className="mb-6 text-2xl font-black text-foreground">
-            Kilometre Taşları
-          </h2>
-          <p className="text-muted mb-6 leading-relaxed">
-            Üç kuşağa yayılan yolculuğumuzun durakları aşağıda: her satır,
-            bugünkü vitrinimizin bir katmanını temsil ediyor.
-          </p>
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[32rem] border-collapse text-sm">
-              <thead>
-                <tr className="border-b border-border text-left">
-                  <th scope="col" className="py-3 pr-4 font-semibold">
-                    Yıl
-                  </th>
-                  <th scope="col" className="py-3 font-semibold">
-                    Olay
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {milestones.map((row) => (
-                  <tr key={row.yil} className="border-b border-border/60">
-                    <td className="text-primary py-3 pr-4 font-medium">
-                      {row.yil}
-                    </td>
-                    <td className="text-muted py-3">{row.olay}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section className="mt-10">
-          <h2 className="mb-6 text-2xl font-black text-foreground">
-            Değerlerimiz
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map((value) => (
+        {/* İstatistikler */}
+        <section aria-label="Temel Değerler ve İstatistikler" className="mt-10 sm:mt-12">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {stats.map((s) => (
               <div
-                key={value.baslik}
-                className="rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1 motion-reduce:transition-none"
+                key={s.etiket}
+                className="rounded-xl border border-border bg-card p-4 text-center transition-transform hover:-translate-y-0.5"
               >
-                <h3 className="text-lg font-bold text-foreground">
-                  {value.baslik}
-                </h3>
-                <p className="text-muted mt-3 text-sm leading-relaxed">
-                  {value.metin}
+                <div className="text-xl sm:text-2xl font-black text-primary">
+                  {s.deger}
+                </div>
+                <div className="mt-1 text-[11px] text-muted font-medium">
+                  {s.etiket}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Değerler */}
+        <section aria-label="İlkelerimiz" className="mt-10 sm:mt-12">
+          <h2 className="mb-4 text-lg sm:text-xl font-black text-foreground">
+            Üretim Standartlarımız
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {values.map((v) => (
+              <div
+                key={v.baslik}
+                className="flex flex-col justify-between rounded-xl border border-border bg-card p-4 sm:p-5"
+              >
+                <div>
+                  <h3 className="text-sm font-bold text-foreground">
+                    {v.baslik}
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-muted">
+                    {v.metin}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Kilometre Taşları */}
+        <section aria-label="Zaman Çizelgesi" className="mt-10 sm:mt-12">
+          <h2 className="mb-4 text-lg sm:text-xl font-black text-foreground">
+            Kuruluş Yolculuğumuz
+          </h2>
+          <div className="space-y-3">
+            {milestones.map((m) => (
+              <div
+                key={m.yil + m.olay}
+                className="flex flex-col gap-1.5 rounded-xl border border-border bg-card p-4 sm:flex-row sm:items-baseline sm:gap-4"
+              >
+                <span className="shrink-0 font-mono text-xs font-bold text-primary sm:w-24">
+                  {m.yil}
+                </span>
+                <p className="text-xs leading-relaxed text-muted">
+                  {m.olay}
                 </p>
               </div>
             ))}
           </div>
         </section>
-
-        <section className="mt-10">
-          <h2 className="mb-6 text-2xl font-black text-foreground">
-            Rakamlarla Nova Artisan
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {stats.map((stat) => (
-              <div
-                key={stat.etiket}
-                className="rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1 motion-reduce:transition-none"
-              >
-                <p className="text-primary text-4xl font-black">{stat.deger}</p>
-                <p className="text-muted mt-2 text-sm">{stat.etiket}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="mt-14">
-          <h2 className="mb-4 text-2xl font-black text-foreground">
-            İlgili Sayfalar
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              to="/urunler"
-              className="text-primary rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-primary"
-            >
-              Ürünler
-            </Link>
-            <Link
-              to="/firin-ustasi-gunlugu"
-              className="text-primary rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-primary"
-            >
-              Fırın Ustası Günlüğü
-            </Link>
-            <Link
-              to="/iletisim"
-              className="text-primary rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-primary"
-            >
-              İletişim
-            </Link>
-          </div>
-        </div>
       </PageTemplate>
     </>
   );

@@ -1,4 +1,7 @@
+// File: src/components/Hero.tsx
+
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Container } from './Container';
 
 export function Hero() {
@@ -34,8 +37,8 @@ export function Hero() {
       id="ana-sayfa"
       className="relative isolate overflow-hidden rounded-t-[12px] bg-foreground motion-reduce:min-h-screen"
       style={{
-        marginTop: 'calc(-1 * clamp(3rem, 5vw, 4.5rem))',
-        minHeight: 'calc(100svh - 20svh * var(--hero-shrink, 0))',
+        marginTop: 'calc(-1 * clamp(2.5rem, 4vw, 3.5rem))',
+        minHeight: 'calc(100svh - 15svh * var(--hero-shrink, 0))',
       }}
     >
       <video
@@ -52,30 +55,35 @@ export function Hero() {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.5),rgba(0,0,0,0.25))]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.55),rgba(0,0,0,0.3))]"
       />
 
-      <Container className="relative flex min-h-[inherit] flex-col items-center justify-center gap-6 pt-[clamp(5rem,7vw,6.5rem)] pb-16 text-center md:gap-8">
-        <p className="font-logo text-on-media text-5xl drop-shadow-md md:text-7xl">
+      <Container className="relative flex min-h-[inherit] flex-col items-center justify-center gap-4 pt-[clamp(3.5rem,5vw,4.5rem)] pb-12 text-center sm:gap-5 md:gap-6">
+        <div className="inline-block rounded-full bg-black/40 border border-white/20 px-3.5 py-1 text-[11px] font-semibold text-white backdrop-blur-md">
+          Tokat Erbaa'da Butik ve Profesyonel Pastane
+        </div>
+
+        <h1 className="font-logo text-on-media text-4xl sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-md">
           Nova Artisan
+        </h1>
+
+        <p className="max-w-lg text-on-media/90 text-sm sm:text-base leading-relaxed">
+          El açması kat kat börekler, taze butik pastalar ve taş fırından çıkan artisan kruvasanlar. Tokat Erbaa'da açılışa özel lezzetlerimizi keşfedin.
         </p>
-        <p className="max-w-xl text-on-media/90 text-base md:text-lg">
-          El yapımı fırın ürünleri, taze kahve ve güne güzel bir başlangıç.
-          Açılışa özel %20 indirimle tanışın.
-        </p>
-        <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <a
-            href="#rezervasyon"
-            className="bg-primary text-primary-foreground focus-visible:border-primary focus-visible:border-3 inline-flex h-12 items-center justify-center rounded-full px-8 text-base font-semibold transition-transform hover:scale-105 focus-visible:outline-none"
+
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4 mt-1">
+          <Link
+            to="/katalog"
+            className="bg-primary text-primary-foreground focus-visible:border-primary inline-flex h-10 sm:h-11 items-center justify-center rounded-full px-6 sm:px-7 text-xs sm:text-sm font-semibold transition-transform hover:scale-105 focus-visible:outline-none shadow-md"
           >
-            Rezervasyon Yap
-          </a>
-          <a
-            href="#menu"
-            className="text-on-media border-on-media/40 hover:border-on-media focus-visible:border-on-media inline-flex h-12 items-center justify-center rounded-full border-2 bg-transparent px-8 text-base font-semibold backdrop-blur-sm transition-colors focus-visible:outline-none"
+            Lezzet Kataloğunu İncele
+          </Link>
+          <Link
+            to="/rezervasyon"
+            className="text-on-media border-on-media/60 hover:border-on-media focus-visible:border-on-media inline-flex h-10 sm:h-11 items-center justify-center rounded-full border bg-black/30 px-6 sm:px-7 text-xs sm:text-sm font-semibold backdrop-blur-sm transition-colors focus-visible:outline-none"
           >
-            Menüyü Gör
-          </a>
+            Rezervasyon & Sipariş
+          </Link>
         </div>
       </Container>
     </section>
